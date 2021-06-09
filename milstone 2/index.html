@@ -24,7 +24,8 @@
                 <div class="square">
                     <div class="title"><strong>Titolo: </strong> {{movie.title}}</div>
                     <div class="original_title"><strong>Titolo originale: </strong> {{movie.original_title}}</div>
-                    <div class="lingua"><strong>Lingua: </strong> {{movie.original_language}}</div>
+                    <img :src=" 'https://flagcdn.com/w20/' + movie.original_language + '.webp' " alt="">
+                    <!-- <div class="lingua"><strong>Lingua: </strong> {{movie.original_language}}</div> -->
                     <div class="voto"><strong>Voto: </strong> {{movie.vote_average}}</div>
                 </div>
             </div>
