@@ -2,8 +2,11 @@ const app = new Vue ({
     el: '#app',
     data: {
         query: '',
-        elementUrl: 'https://api.themoviedb.org/3/search/movie?api_key=e1b0e65be42222fb18709312c079ff41',
-        url: '',
+        elementUrlMovie: 'https://api.themoviedb.org/3/search/movie?',
+        elementUrlTv: 'https://api.themoviedb.org/3/search/tv?',
+        apiKey: 'e1b0e65be42222fb18709312c079ff41',
+        urlMovie: '',
+        urlTv: '',
         movies: null,
         tv: null,
         error: null
@@ -13,18 +16,18 @@ const app = new Vue ({
         Milestone 1:
         Creare un layout base con una searchbar (una input e un button) in cui possiamo scrivere completamente o parzialmente il nome di un film. Possiamo, cliccando il  bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
         Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori per ogni film trovato: 
-        Titolo
-        Titolo Originale
-        Lingua
-        Voto
+        - Titolo
+        - Titolo Originale
+        - Lingua
+        - Voto
         */
 
         addQuery(){
 
-            this.url = this.elementUrl + '&query=' + this.query
+            this.urlMovie = this.elementUrlMovie + '&api_key=' + this.apiKey + '&query=' + this.query;
             console.log(this.url);
             axios
-            .get(this.url)
+            .get(this.urlMovie)
             .then( resp => {
                 this.movies = resp.data;
                 console.log(this.movies);
@@ -32,7 +35,15 @@ const app = new Vue ({
             .catch( e => {
                 this.error = 'Errore: ' + e
             })
-
+            this.urlTv = this.elementUrlTv + '&api_key=' + this.apiKey + '&query=' + this.query;
+            axios
+            .get(this.urlTv)
+            .then( resp => {
+                this.tv = resp.data;
+            })
+            .catch( e => {
+                this.error = 'Errore: ' + e
+            })
             this.query = '';
         },
 
