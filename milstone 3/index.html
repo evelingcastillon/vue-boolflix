@@ -22,6 +22,7 @@
             <h3>MOVIE</h3>
             <div class="movies" v-for="movie in movies.results">
                 <div class="square">
+                    <img :src=" 'http://image.tmdb.org/t/p/w500' + movie.poster_path " alt="Image poster ">
                     <div class="title"><strong>Titolo: </strong> {{movie.title}}</div>
                     <div class="original_title"><strong>Titolo originale: </strong> {{movie.original_title}}</div>
                     <img alt="" :src=" 'https://unpkg.com/language-icons/icons/' + movie.original_language + '.svg'">
@@ -33,6 +34,7 @@
             <h3>TV SHOW </h3>
             <div class="tv" v-for="program in tv.results">
                 <div class="square">
+                    <img :src=" 'http://image.tmdb.org/t/p/w500' + program.poster_path " alt="Image poster ">
                     <div class="title"> <strong>Titolo: </strong> {{program.name}}</div>
                     <div class="original_title"><strong>Titolo originale: </strong> {{program.original_name}}</div>
                     <img alt="" :src=" 'https://unpkg.com/language-icons/icons/' + program.original_language + '.svg'">
