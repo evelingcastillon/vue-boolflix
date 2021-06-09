@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#site_header {
+    background-color: black;
+}
+#site_main {
+    background-color: darkslategrey;
+    width: 100%;
+    height: calc(100vh - 57.600px);
+    overflow-y: scroll;
+}
+.square {
+    background-color: firebrick;
+    height: 280px;
+    width: 180px;
+    margin: 2rem;
+}
+.square > img:first-child {
+    height: 280px;
+    width: 180px;
+
+}
+.box_info {
+    display: none;
+}

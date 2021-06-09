@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booflix</title>
+    <!-- main css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div id="app">
+
+        <!-- Site Header -->
+        <header id="site_header" class="d-flex justify-content-between p-2">
+            <div class="header_left logo">
+                <h3 class="text-danger">BOOLFLIX</h3>
+            </div>
+
+            <div class="header_rigth">
+                <input type="text" name="" id="" v-model="query" placeholder="Cerca...">
+                <button @click="addQuery">Cerca</button>
+            </div>
+        </header>
+        <!-- /Site Header -->
+        
+        <!-- Site Main -->
+        <main id="site_main" >
+
+            <div v-if="movies" class="">
+                <h3>MOVIE</h3>
+
+                <div class="d-flex flex-wrap">
+                    <div class="movies" v-for="movie in movies.results">
+                        <div class="square">
+                            <img :src=" 'http://image.tmdb.org/t/p/w500' + movie.poster_path " alt="Image poster ">
+    
+                            <div class="box_info">
+                                <div class="title"><strong>Titolo: </strong> {{movie.title}}</div>
+                                <div class="original_title"><strong>Titolo originale: </strong> {{movie.original_title}}</div>
+                                <img alt="" :src=" 'https://unpkg.com/language-icons/icons/' + movie.original_language + '.svg'">
+                                <div class="voto"><strong>Voto: </strong> {{movie.vote_average}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div v-if="tv">
+                <h3>TV SHOW </h3>
+                <div class="d-flex flex-wrap">
+                    <div class="tv" v-for="program in tv.results">
+                        <div class="square">
+                            <img :src=" 'http://image.tmdb.org/t/p/w500' + program.poster_path " alt="Image poster ">
+    
+                            <div class="box_info">
+                                <div class="title"> <strong>Titolo: </strong> {{program.name}}</div>
+                                <div class="original_title"><strong>Titolo originale: </strong> {{program.original_name}}</div>
+                                <img alt="" :src=" 'https://unpkg.com/language-icons/icons/' + program.original_language + '.svg'">
+                                <div class="voto"> <strong>Voto: </strong> {{program.vote_average}}</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <!-- /Site Main -->
+        
+
+    </div>
+
+    <!-- vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- axios cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- main js -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
