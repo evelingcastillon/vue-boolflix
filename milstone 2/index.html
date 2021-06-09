@@ -19,14 +19,24 @@
         
         
         <div v-if="movies">
-
             <div class="movies" v-for="movie in movies.results">
                 <div class="square">
                     <div class="title"><strong>Titolo: </strong> {{movie.title}}</div>
                     <div class="original_title"><strong>Titolo originale: </strong> {{movie.original_title}}</div>
-                    <img :src=" 'https://flagcdn.com/w20/' + movie.original_language + '.webp' " alt="">
+                    <img alt="" :src=" 'https://unpkg.com/language-icons/icons/' + movie.original_language + '.svg'">
                     <!-- <div class="lingua"><strong>Lingua: </strong> {{movie.original_language}}</div> -->
                     <div class="voto"><strong>Voto: </strong> {{movie.vote_average}}</div>
+                </div>
+            </div>
+        </div>
+        <div v-if="tv">
+            <div class="tv" v-for="program in tv.results">
+                <div class="square">
+                    <div class="title"> <strong>Titolo: </strong> {{program.name}}</div>
+                    <div class="original_title"><strong>Titolo originale: </strong> {{program.original_name}}</div>
+                    <img alt="" :src=" 'https://unpkg.com/language-icons/icons/' + program.original_language + '.svg'">
+                    
+                    <div class="voto"> <strong>Voto: </strong> {{program.vote_average}}</div>
                 </div>
             </div>
         </div>
