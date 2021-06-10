@@ -12,17 +12,37 @@
     height: calc(100vh - 57.600px);
     overflow-y: scroll;
 }
+
 .square {
     background-color: firebrick;
-    height: 280px;
-    width: 180px;
+    height: 350px;
+    width: 260px;
     margin: 2rem;
+    position: relative;
 }
 .square > img:first-child {
-    height: 280px;
-    width: 180px;
+    height: 350px;
+    width: 260px;
 
 }
 .box_info {
-    display: none;
+    visibility: hidden;
+    color: rgb(198, 198, 198);
+    background-color: rgba(0,0,0,0.8);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.square:hover .box_info {
+    cursor: pointer;
+    visibility: initial;
+}
+.box_info > img {
+    width: 20px;
 }
